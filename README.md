@@ -47,3 +47,73 @@ Input validation occurs at multiple levels. The frontend validates user input be
 Security Measures
 We implemented several security measures. Passwords are hashed using bcrypt with salt rounds before storage. JWT tokens are signed with a secret key and include expiration times. Refresh tokens are stored in HTTP-only cookies that cannot be accessed by JavaScript. CORS is configured to only allow requests from approved origins.
 The system validates user ownership before allowing access to jobs or candidates. All API routes that modify data require authentication. File uploads are limited by type and size to prevent abuse.
+
+Installation Instructions
+
+Prerequisites
+Install the following software on your computer:
+Node.js version 18 or higher
+MongoDB version 6 or higher
+Git
+OpenAI API key
+
+Downloading the Project
+Open your terminal and navigate to the directory where you want to save the project. Run:
+git clone https://github.com/nadeenhalabi1/projectPhaseB.git
+Navigate into the project directory:
+cd projectPhaseB
+
+Installing Backend Dependencies
+Navigate to the backend directory:
+cd backend
+Install all required packages:
+npm install
+
+Installing Frontend Dependencies
+Navigate to the frontend directory:
+cd ../frontend
+Install all required packages:
+npm install
+
+Configuring Backend Environment Variables
+Navigate to the backend directory:
+cd ../backend
+Create a new file named .env in the backend directory.
+Add the following content to the .env file, replacing placeholder values with your actual values:
+MONGODB_URI=mongodb://localhost:27017/cv-screening
+JWT_SECRET=your-secret-key-here
+OPENAI_API_KEY=sk-your-openai-api-key
+PORT=3001
+NODE_ENV=development
+MAX_FILE_SIZE=10485760
+UPLOAD_DIR=./uploads
+FRONTEND_URL=http://localhost:5173
+
+Configuring Frontend Environment Variables
+Navigate to the frontend directory:
+cd ../frontend
+Create a new file named .env in the frontend directory.
+Add the following content to the .env file:
+VITE_API_URL=http://localhost:3001/api
+
+Starting MongoDB
+Open a new terminal window and start MongoDB:
+mongod
+Keep this terminal window open.
+
+Starting the Backend Server
+Open a new terminal window and navigate to the backend directory:
+cd backend
+Start the backend server:
+npm run dev
+Keep this terminal window open.
+
+Starting the Frontend Development Server
+Open another new terminal window and navigate to the frontend directory:
+cd frontend
+Start the frontend development server:
+npm run dev
+
+Accessing the Application
+Open your web browser and navigate to http://localhost:5173. The application should load and display the login page.
+
